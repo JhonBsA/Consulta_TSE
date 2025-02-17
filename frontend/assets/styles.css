@@ -1,0 +1,54 @@
+.title {
+    font-size: 36px !important;
+    text-align: center;
+    font-weight: bold;
+    color: #1f77b4;
+}
+
+
+div.stTextInput > div > div > input {
+    font-size: 18px;
+}
+
+div[data-baseweb="input"] {
+    border: none !important;
+}
+
+div.stButton > button:first-child {
+    color: white;
+    border-color: #1f77b4;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px !important;
+    width: 100%;
+    margin-right: 10px;
+}
+
+div.stButton > button[kind="primary"] {
+    background-color: #bb1b1be0;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+div.stButton > button:focus,
+div.stButton > button:hover {
+    outline: none !important;
+    border-color: #1f77b4 !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+div.stButton > button:hover {
+    background-color: #0056b3;
+}
+
+div.stButton > button[kind="primary"]:hover {
+    background-color: #bb0101bd;
+}
+
+.stTable {
+    font-size: 18px !important;
+}
