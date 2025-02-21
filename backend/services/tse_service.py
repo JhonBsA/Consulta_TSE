@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 class TSEService:
     def __init__(self):
         # Configura el controlador de Selenium (Chrome en este caso) con Service
-        service = Service(r'..\\tse_api_project\ChromeDriver\chromedriver.exe')
+        service = Service(r'..\\Consulta_TSE\ChromeDriver\chromedriver.exe')
         options = Options()
         options.add_argument('--headless') # Ejecución sin abrir el navegador
         options.add_argument('--disable-gpu')
@@ -21,7 +21,7 @@ class TSEService:
         self.driver.get('https://servicioselectorales.tse.go.cr/chc/consulta_cedula.aspx')
         
         # Espera que la página cargue completamente, esperando a que el campo de cédula esté visible
-        WebDriverWait(self.driver, 3).until(
+        WebDriverWait(self.driver, 2).until(
             EC.presence_of_element_located((By.ID, 'txtcedula'))
         )
 
@@ -35,18 +35,18 @@ class TSEService:
         consultar_button.click()
         
         # Espera a que los resultados aparezcan en la página
-        WebDriverWait(self.driver, 3).until(
+        WebDriverWait(self.driver, 2).until(
             EC.presence_of_element_located((By.ID, 'lblcedula'))          
         )
 
         # Espera a que el botón 'Mostrar Votación' esté disponible y luego hace clic
-        boton_mostrar_votacion = WebDriverWait(self.driver, 3).until(
+        boton_mostrar_votacion = WebDriverWait(self.driver, 2).until(
             EC.element_to_be_clickable((By.ID, 'btnMostrarVotacion'))
         )
         boton_mostrar_votacion.click()
 
          # Espera a que la tabla de votación esté completamente cargada
-        WebDriverWait(self.driver, 3).until(
+        WebDriverWait(self.driver, 2).until(
             EC.presence_of_element_located((By.ID, 'Gridvotacion'))
         )
 
@@ -76,6 +76,6 @@ class TSEService:
         except AttributeError:
             return None
 
-    def cerrar(self):
+    #def cerrar(self):
         # Cierra el navegador
-        self.driver.quit()
+        #self.driver.quit()

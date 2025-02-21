@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from backend.models.cedula_model import CedulaRequest
+#from backend.models.cedula_model import CedulaRequest
 from backend.services.tse_service import TSEService
 
 router = APIRouter()
@@ -17,5 +17,8 @@ async def consultar_cedula(cedula: str):
             raise HTTPException(status_code=404, detail="No se pudo extraer información correctamente.")
         
         return informacion
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error interno: {str(e)}")
     finally:
-        tse_service.cerrar()
+        None
+        #tse_service.cerrar()

@@ -3,7 +3,7 @@ import streamlit as st
 def clear_text():
     st.session_state["cedula_input"] = ""
 
-def mostrar_input_form():
+def mostrar_input_form_nacional():
     #Muestra el campo de entrada
     cedula = st.text_input(
         "Ingrese solo números (máximo 9 dígitos)",

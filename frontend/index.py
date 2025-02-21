@@ -1,6 +1,6 @@
 import streamlit as st
 from components.header import mostrar_header
-from components.input_form import mostrar_input_form, clear_text
+from components.input_form import mostrar_input_form_nacional, clear_text
 from components.result_table import mostrar_resultado
 from services.api_service import consultar_cedula
 
@@ -12,27 +12,7 @@ with open("frontend/assets/styles.css") as f:
 mostrar_header()
 
 # Mostrar el formulario de entrada
-cedula = mostrar_input_form()
-
-#answer_placeholder = st.empty()
-
-# Meti JavaScript para restringir la entrada de letras
-st.markdown(
-    """
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const input = document.querySelector('input[type="text"]');
-        if (input) {
-            input.addEventListener('input', function(event) {
-                // Eliminar letras del valor del input
-                event.target.value = event.target.value.replace(/[^0-9]/g, '');
-            });
-        }
-    });
-    </script>
-    """,
-    unsafe_allow_html=True,
-)
+cedula = mostrar_input_form_nacional()
 
 # Función para consultar la cédula
 def ejecutar_consulta():
